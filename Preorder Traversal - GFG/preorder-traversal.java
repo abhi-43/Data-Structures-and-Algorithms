@@ -126,6 +126,9 @@ class BinaryTree
     {
         // Code here
         ArrayList<Integer> ans = new ArrayList<>();
+        if(root == null)
+        return ans;
+        
         Stack<Node> st = new Stack<>();
         st.push(root);
         
