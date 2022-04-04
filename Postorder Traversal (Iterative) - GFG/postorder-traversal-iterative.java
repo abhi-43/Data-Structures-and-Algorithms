@@ -112,32 +112,56 @@ class Node{
     }
 }
 */
-class Tree {
-    ArrayList<Integer> postOrder(Node node) {
-        // code here
-        ArrayList<Integer> ans = new ArrayList<>();
-        if(node == null)
-            return ans;
+// class Tree {
+//     ArrayList<Integer> postOrder(Node node) {
+//         // code here
+//         ArrayList<Integer> ans = new ArrayList<>();
+//         if(node == null)
+//             return ans;
             
-        Stack<Node> st1 = new Stack<>();
-        Stack<Node> st2 = new Stack<>();
-        st1.push(node);
+//         Stack<Node> st1 = new Stack<>();
+//         Stack<Node> st2 = new Stack<>();
+//         st1.push(node);
         
-        while(!st1.isEmpty())
-        {
-            Node temp = st1.pop();
-            st2.push(temp);
+//         while(!st1.isEmpty())
+//         {
+//             Node temp = st1.pop();
+//             st2.push(temp);
             
-            if(temp.left!=null)
-                st1.push(temp.left);
-            if(temp.right!=null)
-                st1.push(temp.right);
-        }
-        while(!st2.isEmpty())
-            ans.add(st2.pop().data);
+//             if(temp.left!=null)
+//                 st1.push(temp.left);
+//             if(temp.right!=null)
+//                 st1.push(temp.right);
+//         }
+//         while(!st2.isEmpty())
+//             ans.add(st2.pop().data);
             
+//             return ans;
+//     }
+// }
+
+class Tree
+{
+     ArrayList<Integer> postOrder(Node node) {
+         ArrayList<Integer> ans = new ArrayList<>();
+         if(node == null)
             return ans;
-    }
+            
+        Stack<Node> st = new Stack<>();
+        st.push(node);
+        while(st.size()!=0)
+        {
+            Node temp = st.pop();
+            ans.add(temp.data);
+            if(temp.left!=null)
+                st.push(temp.left);
+            if(temp.right!=null)
+                st.push(temp.right);
+        }
+        Collections.reverse(ans);
+        return ans;
+     }
+    
 }
 
 
