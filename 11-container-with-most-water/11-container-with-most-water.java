@@ -6,11 +6,7 @@ class Solution {
         
         while(low<high)
         {
-            int breadth = high - low;
-            int length = Math.min(height[low], height[high]);
-           
-            int area = length*breadth;
-            m = Math.max(m, area);
+            m = Math.max(m, (Math.min(height[low], height[high])*(high - low)));
         
             if(height[low]>height[high])
                 high--;
